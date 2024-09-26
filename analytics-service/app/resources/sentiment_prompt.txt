@@ -1,0 +1,144 @@
+Please perform the following analyses on the above text:
+
+1. **Sentiment Analysis**:
+   - Determine the overall sentiment of the text.
+   - Provide appropriate scores (0 to 1 value) for 'Positive', 'Negative', and 'Neutral' sentiments.
+   - Each score should be a float between 0 and 1, and the sum of all three should equal 1.
+
+2. **Tone Analysis**:
+   - Identify the tone(s) present in the text (e.g., 'Formal', 'Urgent', 'Informative', etc.).
+   - For each tone, provide a 'Type' and a 'Score' between 0 and 1 indicating the intensity.
+
+
+3. **Language Descriptors:**
+    - List descriptors that characterize the language used (e.g., 'Straightforward', 'Complex', 'Emotive', etc.).
+    - Provide a 'Descriptor' and a 'Score' between 0 and 1 for each.
+
+4. **Emotive Phrases:**
+    - Identify any emotionally charged phrases in the text.
+    - For each phrase, provide the 'Phrase' and an 'Intensity' score between 0 and 1.
+
+5. **Authority Figure:**
+    - Determine if an authority figure is mentioned or implied.
+    - Set 'Present' to 1.0 if present, 0.0 otherwise.
+    - Provide a 'Credibility' score between 0 and 1 for the authority figure.
+
+6. **Keywords Extraction:**
+    - Extract significant keywords from the text.
+    - Provide highly important and related keywords that describe and bring out the actual meaning of the news.
+
+7. **Summarizing the News Text:**
+    - Summarize the text. Use a maximum of 200 words for the summary.
+    - Include important data such as dates, figures, or names without changing the original meaning of the news.
+
+8. **Named Entity Recognition (NER):**
+    - Extract entities such as People, Organizations, Locations, and Dates mentioned in the text.
+
+9. **Emotion Analysis:**
+    - Identify specific emotions expressed in the text (e.g., 'Joy', 'Fear', 'Anger', 'Sadness', 'Surprise').
+    - For each emotion, provide a 'Type' and a 'Score' between 0 and 1.
+
+10. **Subjectivity Analysis:**
+    - Determine whether the text is Objective or Subjective.
+    - Provide a 'Type' and a 'Score' between 0 and 1 indicating the degree of subjectivity.
+
+11. **Recommendations:**
+    - Provide any suggestions or precautions based on the content.
+
+12. **Questions Generated:**
+    - Generate questions based on the text content that could help in understanding the key points.
+
+13. **News Categorization**:
+    - Assign one or more categories to the news article based on its content.
+    - Categories can include (but are not limited to): 'Politics', 'Economy', 'Health', 'Science', 'Technology', 'Sports', 'Entertainment', 'Weather', 'Crime', 'International', 'Local', etc.
+    - Provide a list of categories that best describe the news article.
+
+**Important Instructions**:
+
+- **Your response should be a valid XML document only. Do not include any code blocks, markdown formatting, or additional explanations.**
+- **Ensure that the XML is properly formatted and valid, with correct nesting of elements and proper encoding of special characters.**
+- **Begin the XML output immediately, without any preceding or following text.**
+- **All float values should be rounded to two decimal places.**
+- **Represent all data using appropriate XML elements and attributes as specified in the structure below.**
+
+**XML Structure**:
+
+```xml
+<Analysis>
+  <Sentiment>
+    <Positive>float</Positive>
+    <Negative>float</Negative>
+    <Neutral>float</Neutral>
+  </Sentiment>
+  <Tone>
+    <ToneEntry>
+      <Type>string</Type>
+      <Score>float</Score>
+    </ToneEntry>
+    <!-- Repeat <ToneEntry> as needed -->
+  </Tone>
+  <Language>
+    <LanguageEntry>
+      <Descriptor>string</Descriptor>
+      <Score>float</Score>
+    </LanguageEntry>
+    <!-- Repeat <LanguageEntry> as needed -->
+  </Language>
+  <EmotivePhrases>
+    <PhraseEntry>
+      <Phrase>string</Phrase>
+      <Intensity>float</Intensity>
+    </PhraseEntry>
+    <!-- Repeat <PhraseEntry> as needed -->
+  </EmotivePhrases>
+  <AuthorityFigure>
+    <Present>float</Present>
+    <Credibility>float</Credibility>
+  </AuthorityFigure>
+  <Keywords>
+    <Keyword>string</Keyword>
+    <!-- Repeat <Keyword> as needed -->
+  </Keywords>
+  <Summary>string</Summary>
+  <Entities>
+    <People>
+      <Person>string</Person>
+      <!-- Repeat <Person> as needed -->
+    </People>
+    <Organizations>
+      <Organization>string</Organization>
+      <!-- Repeat <Organization> as needed -->
+    </Organizations>
+    <Locations>
+      <Location>string</Location>
+      <!-- Repeat <Location> as needed -->
+    </Locations>
+    <Dates>
+      <Date>string</Date>
+      <!-- Repeat <Date> as needed -->
+    </Dates>
+  </Entities>
+  <Emotions>
+    <EmotionEntry>
+      <Type>string</Type>
+      <Score>float</Score>
+    </EmotionEntry>
+    <!-- Repeat <EmotionEntry> as needed -->
+  </Emotions>
+  <Subjectivity>
+    <Type>string</Type>
+    <Score>float</Score>
+  </Subjectivity>
+  <Recommendations>
+    <Recommendation>string</Recommendation>
+    <!-- Repeat <Recommendation> as needed -->
+  </Recommendations>
+  <Questions>
+    <Question>string</Question>
+    <!-- Repeat <Question> as needed -->
+  </Questions>
+  <Categories>
+    <Category>string</Category>
+    <!-- Repeat <Category> as needed -->
+  </Categories>
+</Analysis>
